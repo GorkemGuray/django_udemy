@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse
 
 def index(request):
-    return render(request, 'article/index.html')
+    return render(request, 'index.html')
 
