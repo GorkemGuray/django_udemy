@@ -1,4 +1,4 @@
-from django import forms
+from django import forms 
 
 
 class RegisterForm(forms.Form):
@@ -11,6 +11,7 @@ class RegisterForm(forms.Form):
         password = self.cleaned_data.get("password")
         confirm = self.cleaned_data.get("confirm")
 
+
         if password and confirm and password!=confirm:
             raise  forms.ValidationError("Parololar eşleşmiyor!")
 
@@ -21,3 +22,7 @@ class RegisterForm(forms.Form):
         }
 
         return values
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label="Kullanıcı adı")
+    password  = forms.CharField(label="Parola", widget=forms.PasswordInput)
