@@ -92,3 +92,5 @@ def logoutUser(request):
     logout(request)
     messages.success(request,"Başarıyla çıkış yaptınız...")
     return redirect('index')
+
+    

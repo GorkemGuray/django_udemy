@@ -19,8 +19,33 @@
 
     <ul class="navbar-nav ml-auto">
 
+    {% if request.user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><small>{{request.user.username}}</small></a>
+      </li>
+
     
-                   
+      <li class="nav-item active">
+        <a class="nav-link" href="/articles/dashboard">Makale Kontrol Paneli</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/user/logout">Çıkış Yap</a>
+      </li>
+    {% else %}
+       <li class="nav-item active">
+        <a class="nav-link" href="/user/login">Giriş Yap</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/user/register">Kayıt Ol</a>
+      </li>
+
+    {% endif %}
+
+      
+
+     
 
     </ul>
   </div>
