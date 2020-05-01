@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block title %}Makale Kontrol Paneli{% endblock title %}
+
+{% block body %}
+    <h3>Makale Kontrol Paneli</h3>
+    <small>Kullanıcı: <b>{{request.user.username}}</b> </small>
+    <hr>
+    <a class="btn btn-primary" href="/articles/addarticle">Makale Ekle</a>
+{% endblock body %}
