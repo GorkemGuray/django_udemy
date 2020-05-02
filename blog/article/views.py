@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from .forms import ArticleForm
+from .models import Article
 from django.contrib import messages
 
 def index(request):
@@ -13,7 +14,11 @@ def about(request):
     return render(request,'about.html')
 
 def dashboard(request):
-    return render(request,'dashboard.html')
+    article = Article.objects.filter(author=request.user)
+    context = {
+        "article":article
+    }
+    return render(request,'dashboard.html',context)
 
 def addArticle(request):
     form = ArticleForm(request.POST or None)
