@@ -4,11 +4,7 @@ from .models import Article
 from django.contrib import messages
 
 def index(request):
-    context = {
-        "number1":10,
-        "number2":20
-    }
-    return render(request, 'index.html',context)
+    return render(request, 'index.html')
 
 def about(request):
     return render(request,'about.html')
@@ -33,5 +29,9 @@ def addArticle(request):
 
 
     return render (request, 'addarticle.html',{"form":form})
+
+def detail(request,id):
+    article = Article.objects.filter(id=id).first()
+    return render(request,'detail.html',{"article":article})
 
 
